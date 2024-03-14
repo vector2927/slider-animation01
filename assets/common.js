@@ -58,13 +58,14 @@ let canScroll = true;
 
 function handleMouseScroll(event) {
   var scroll = event.deltaY;
+  var hScroll = event.deltaX;
   console.log(canScroll);
-  if (canScroll && Math.abs(scroll) > 40){
+  if ((canScroll && Math.abs(scroll) > 40) || (canScroll && Math.abs(hScroll) > 40) ){
 
     canScroll = false;
-    if (scroll > 20){
+    if (scroll > 20 || hScroll > 20){
       next.onclick();
-    } else if ( scroll < 20 ){
+    } else if ( scroll < 20 || hScroll < 20 ){
       prev.onclick();
     }
     
