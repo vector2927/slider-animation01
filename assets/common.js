@@ -52,3 +52,33 @@ const changeSlider = () => {
 let autoPlay = setInterval(() => {
     next.click();
 }, 5000);
+
+
+let canScroll = true;
+
+function handleMouseScroll(event) {
+  var scroll = event.deltaY;
+  console.log(canScroll);
+  if (canScroll && Math.abs(scroll) > 40){
+
+    canScroll = false;
+    if (scroll > 20){
+      next.onclick();
+    } else if ( scroll < 20 ){
+      prev.onclick();
+    }
+    
+    setTimeout(() => {
+      canScroll = true;
+    }, 800);
+    
+  }
+
+  clearInterval(autoPlay);
+  autoPlay = setInterval(() => {
+      next.click();
+  }, 5000);
+}
+
+
+document.body.addEventListener('wheel', handleMouseScroll);
