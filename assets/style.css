@@ -12,6 +12,7 @@ body{
     padding: 0;
     text-decoration: none;
     list-style: none;
+    overscroll-behavior: none;
 }
 :root{
     --border-color: #fff5;
